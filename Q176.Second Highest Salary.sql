@@ -32,3 +32,11 @@ SELECT MAX(e.salary) AS SecondHighestSalary
 FROM Employee e RIGHT JOIN Employee ee ON e.salary < ee.salary
 
 
+###MAY BE THE FASTEST ONE
+SELECT
+(SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 1,1) AS SecondHighestSalary
+
+
